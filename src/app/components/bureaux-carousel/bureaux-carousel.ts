@@ -36,7 +36,10 @@ export class BureauxCarouselComponent implements OnInit {
         libelle: o.libelle,
         surface: o.surface,
         ville: o.ville,
-        image: o.photoUrl ? 'assets/images/' + o.photoUrl : this.defaultOffres[i % this.defaultOffres.length].image
+        // L'API retourne "images/BAT A.png" -> on remplace par le chemin local
+        image: o.photoUrl
+          ? 'assets/' + o.photoUrl
+          : this.defaultOffres[i % this.defaultOffres.length].image
       }));
     }
     return this.defaultOffres;
@@ -55,8 +58,9 @@ export class BureauxCarouselComponent implements OnInit {
         this.offres.set(data);
         this.loading.set(false);
       },
-      error: (error) => {
-        console.error('Erreur chargement offres:', error);
+      error: () => {
+        // API inaccessible -> afficher les données par défaut
+        this.offres.set([]);
         this.loading.set(false);
       }
     });
