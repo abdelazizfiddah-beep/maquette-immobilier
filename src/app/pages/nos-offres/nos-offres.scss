@@ -1,0 +1,270 @@
+.nos-offres-page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.page-header {
+  background: linear-gradient(135deg, #19516b 0%, #247093 100%);
+  color: white;
+  padding: 4rem 0 3rem;
+  text-align: center;
+
+  h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-family: 'Lato', sans-serif;
+    font-size: 6px;
+    color: #ffffff;
+    font-weight: 400;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.filters-section {
+  background: #f5f5f5;
+  padding: 2rem 0;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-item {
+  label {
+    font-family: 'Lato', sans-serif;
+    font-size: 6px;
+    color: #000000;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .filter-select,
+  .filter-input {
+    font-family: 'Lato', sans-serif;
+    font-size: 6px;
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background: white;
+
+    &:focus {
+      outline: none;
+      border-color: #f7931e;
+    }
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .checkbox-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+
+      input[type="checkbox"] {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.btn-reset {
+  font-family: 'Lato', sans-serif;
+  font-size: 5px;
+  background: #f7931e;
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #e88200;
+  }
+}
+
+.offres-section {
+  padding: 3rem 0;
+}
+
+.loading,
+.no-results {
+  text-align: center;
+  padding: 4rem 0;
+  
+  p {
+    font-family: 'Lato', sans-serif;
+    font-size: 6px;
+    color: #666666;
+    font-weight: 400;
+  }
+}
+
+.offres-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.offre-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.card-image {
+  position: relative;
+  height: 250px;
+  background: #e0e0e0;
+
+  .offre-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .badges {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .badge {
+    font-family: 'Lato', sans-serif;
+    font-size: 5px;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &.vente {
+      background: #f7931e;
+      color: #ffffff;
+    }
+
+    &.location {
+      background: #19516b;
+      color: #ffffff;
+    }
+  }
+}
+
+.card-content {
+  padding: 1.5rem;
+
+  h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 8px;
+    color: #000000;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+
+  .surface {
+    font-family: 'Lato', sans-serif;
+    font-size: 6px;
+    color: #f7931e;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .ville {
+    font-family: 'Lato', sans-serif;
+    font-size: 6px;
+    color: #666666;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .prix {
+    font-family: 'Lato', sans-serif;
+    font-size: 8px;
+    color: #000000;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .btn-voir {
+    font-family: 'Lato', sans-serif;
+    font-size: 5px;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    font-weight: 700;
+    width: 100%;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #333333;
+    }
+  }
+}
+
+.dots-decoration {
+  position: absolute;
+  bottom: 100px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #70bdeb 2px, transparent 2px);
+  background-size: 10px 10px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@media (max-width: 1200px) {
+  .offres-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .offres-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-grid {
+    grid-template-columns: 1fr;
+  }
+}

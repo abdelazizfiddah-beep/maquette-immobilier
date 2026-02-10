@@ -1,0 +1,113 @@
+<div class="nos-offres-page">
+  <app-header></app-header>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Nos Offres</h1>
+      <p>Découvrez tous nos biens immobiliers disponibles</p>
+    </div>
+  </section>
+
+  <section class="filters-section">
+    <div class="container">
+      <div class="filters-grid">
+        <div class="filter-item">
+          <label>Type de bien</label>
+          <select [(ngModel)]="selectedType" (change)="applyFilters()" class="filter-select">
+            <option value="">Tous</option>
+            @for (type of types(); track type.id) {
+              <option [value]="type.libelle">{{ type.libelle }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="filter-item">
+          <label>Localisation</label>
+          <select [(ngModel)]="selectedLocalisation" (change)="applyFilters()" class="filter-select">
+            <option value="">Toutes</option>
+            @for (ville of villes(); track ville.ville) {
+              <option [value]="ville.ville">{{ ville.ville }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="filter-item">
+          <label>Budget maximum</label>
+          <input 
+            type="number" 
+            [(ngModel)]="selectedBudget" 
+            (input)="applyFilters()"
+            placeholder="Budget max"
+            class="filter-input">
+        </div>
+
+        <div class="filter-item">
+          <label>Transaction</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input 
+                type="checkbox" 
+                [(ngModel)]="selectedVente" 
+                (change)="applyFilters()">
+              <span>À vendre</span>
+            </label>
+            <label class="checkbox-label">
+              <input 
+                type="checkbox" 
+                [(ngModel)]="selectedLocation" 
+                (change)="applyFilters()">
+              <span>À louer</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button (click)="resetFilters()" class="btn-reset">
+        Réinitialiser les filtres
+      </button>
+    </div>
+  </section>
+
+  <section class="offres-section">
+    <div class="container">
+      @if (loading()) {
+        <div class="loading">Chargement des offres...</div>
+      } @else if (offres().length === 0) {
+        <div class="no-results">
+          <p>Aucune offre ne correspond à vos critères.</p>
+        </div>
+      } @else {
+        <div class="offres-grid">
+          @for (offre of offres(); track offre.id) {
+            <div class="offre-card">
+              <div class="card-image">
+                <img [src]="'assets/images/' + (offre.photoUrl || 'default-bureau.png')" 
+                     [alt]="offre.libelle"
+                     class="offre-img">
+                <div class="badges">
+                  @if (offre.isAVendre === 1) {
+                    <span class="badge vente">À VENDRE</span>
+                  }
+                  @if (offre.isALouer === 1) {
+                    <span class="badge location">À LOUER</span>
+                  }
+                </div>
+              </div>
+              
+              <div class="card-content">
+                <h3>{{ offre.libelle }}</h3>
+                <p class="surface">{{ offre.surface }} M2</p>
+                <p class="ville">{{ offre.ville }}</p>
+                <p class="prix">{{ offre.prix | number:'1.0-0':'fr' }} €</p>
+                <button (click)="viewOffre(offre)" class="btn-voir">VOIR</button>
+              </div>
+              <div class="dots-decoration"></div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+</div>

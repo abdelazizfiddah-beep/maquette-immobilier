@@ -1,0 +1,145 @@
+.nos-bureaux {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+
+  h2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #f7931e;
+    letter-spacing: 1px;
+  }
+
+  .link-all {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    color: #000000;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+
+    .arrow-icon {
+      width: 14px;
+      height: 14px;
+    }
+
+    &:hover {
+      color: #f7931e;
+    }
+  }
+}
+
+// === Grille 3 cartes ===
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.bureau-card {
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.card-image {
+  height: 200px;
+  overflow: hidden;
+
+  .bureau-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  &:hover .bureau-img {
+    transform: scale(1.05);
+  }
+}
+
+.card-content {
+  padding: 20px;
+
+  h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    color: #000000;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .surface {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    color: #000000;
+    margin-bottom: 4px;
+  }
+
+  .location {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: #000000;
+    opacity: 0.65;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+
+  .btn-voir {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 30px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: #f7931e;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}

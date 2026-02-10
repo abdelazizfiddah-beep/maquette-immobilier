@@ -1,0 +1,173 @@
+.contact-section {
+  background: #000000;
+  padding: 80px 0;
+  width: 100%;
+}
+
+.contact-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+// === GAUCHE : texte blanc ===
+.contact-left {
+  flex: 1;
+  color: #ffffff;
+
+  h2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+  }
+
+  .intro {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: #ffffff;
+    opacity: 0.7;
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .desc {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: #ffffff;
+    opacity: 0.7;
+    line-height: 1.9;
+    margin-bottom: 25px;
+  }
+
+  h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 1px;
+  }
+}
+
+// === DROITE : formulaire blanc ===
+.contact-right {
+  flex: 1;
+  background: #ffffff;
+  padding: 35px;
+
+  h2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+  }
+}
+
+.success-msg, .error-msg {
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  padding: 12px;
+  margin-bottom: 15px;
+}
+
+.success-msg {
+  background: #d4edda;
+  color: #155724;
+}
+
+.error-msg {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.input-field {
+  flex: 1;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  padding: 14px 16px;
+  border: 1px solid #e0e0e0;
+  background: #f8f8f8;
+  color: #000000;
+  outline: none;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: #f7931e;
+  }
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 300;
+  }
+}
+
+.textarea-field {
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  padding: 14px 16px;
+  border: 1px solid #e0e0e0;
+  background: #f8f8f8;
+  color: #000000;
+  outline: none;
+  resize: vertical;
+  min-height: 140px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: #f7931e;
+  }
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 300;
+  }
+}
+
+.btn-send {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  background: #f7931e;
+  color: #ffffff;
+  border: none;
+  padding: 14px 40px;
+  cursor: pointer;
+  font-weight: 900;
+  letter-spacing: 1px;
+  transition: background 0.3s;
+
+  &:hover:not(:disabled) {
+    background: #e07800;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact-wrapper {
+    flex-direction: column;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}
