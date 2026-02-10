@@ -2,47 +2,34 @@
   <div class="contact-wrapper">
     <div class="contact-left">
       <h2>Contactez-nous</h2>
-
+      <div class="orange-line"></div>
       <p class="intro">Que vous soyez vendeur, acheteur, propriétaire ou à la recherche d'un bien à louer, vous trouverez ici toutes les informations dont vous aurez besoin. Nous vous invitons à découvrir et à parcourir notre catalogue de biens disponibles à la vente et à la location.</p>
-
       <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
       <h3>RUDIGOZ & ASSOCIÉS, CONSEIL IMMOBILIER.</h3>
     </div>
 
     <div class="contact-right">
       <h2>Prendre contact</h2>
+      <div class="orange-line"></div>
 
       @if (successMessage()) {
         <div class="success-msg">{{ successMessage() }}</div>
       }
-
       @if (errorMessage()) {
         <div class="error-msg">{{ errorMessage() }}</div>
       }
 
       <form (ngSubmit)="onSubmit()" #contactFormRef="ngForm">
-        <div class="row">
-          <input type="text" [(ngModel)]="formData.prenom" name="prenom"
-            placeholder="Votre prénom" required class="input-field">
-          <input type="text" [(ngModel)]="formData.nom" name="nom"
-            placeholder="Votre nom" required class="input-field">
+        <div class="form-row">
+          <input type="text" [(ngModel)]="formData.prenom" name="prenom" placeholder="Votre prénom" required class="form-field">
+          <input type="text" [(ngModel)]="formData.nom" name="nom" placeholder="Votre nom" required class="form-field">
         </div>
-
-        <div class="row">
-          <input type="tel" [(ngModel)]="formData.telephone" name="telephone"
-            placeholder="Votre téléphone" required class="input-field">
-          <input type="email" [(ngModel)]="formData.email" name="email"
-            placeholder="Votre adresse email" required class="input-field">
+        <div class="form-row">
+          <input type="tel" [(ngModel)]="formData.telephone" name="telephone" placeholder="Votre téléphone" required class="form-field">
+          <input type="email" [(ngModel)]="formData.email" name="email" placeholder="Votre adresse email" required class="form-field">
         </div>
-
-        <textarea [(ngModel)]="formData.message" name="message"
-          placeholder="Votre message." required rows="6"
-          class="textarea-field"></textarea>
-
-        <button type="submit"
-          [disabled]="!contactFormRef.form.valid || submitting()"
-          class="btn-send">
+        <textarea [(ngModel)]="formData.message" name="message" placeholder="Votre message." required rows="6" class="form-textarea"></textarea>
+        <button type="submit" [disabled]="!contactFormRef.form.valid || submitting()" class="btn-send">
           {{ submitting() ? 'ENVOI EN COURS...' : 'ENVOYER' }}
         </button>
       </form>

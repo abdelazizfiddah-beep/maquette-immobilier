@@ -1,40 +1,38 @@
-.hero {
+.hero-container {
   position: relative;
   min-height: 500px;
-  display: flex;
-  align-items: center;
+  width: 100%;
 }
 
-.hero-bg {
+.hero-bg-img {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: 0;
-
-  .bg-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 }
 
 .hero-overlay {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 80px 0;
+  height: 100%;
   background: linear-gradient(135deg,
     rgba(25, 81, 107, 0.80) 0%,
     rgba(36, 112, 147, 0.65) 50%,
     rgba(112, 189, 235, 0.45) 100%);
+  z-index: 1;
 }
 
-.container {
+.hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 80px 20px;
 }
 
 h1 {
@@ -46,125 +44,99 @@ h1 {
   letter-spacing: 1px;
 }
 
-// === Onglets ORANGE ===
-.search-tabs {
+// === Ligne 1 : boutons orange espacés ===
+.tabs-row {
   display: flex;
-  gap: 0;
+  gap: 10px;
+  margin-bottom: 10px;
 
   .tab-btn {
     font-family: 'Lato', sans-serif;
     font-size: 12px;
+    color: #ffffff;
+    background: #f7931e;
     border: none;
-    padding: 12px 35px;
+    padding: 14px 35px;
     cursor: pointer;
     font-weight: 900;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
+    transition: background 0.3s;
 
-    &.orange {
-      background: #f7931e;
-      color: #ffffff;
-
-      &:hover, &.active {
-        background: #e07800;
-      }
+    &:hover, &.active {
+      background: #e07800;
     }
   }
 }
 
-// === Champs BLANCS transparents ===
-.search-fields {
-  margin-top: 0;
-}
-
-.field-row {
+// === Ligne 2 : champs blancs ===
+.fields-row {
   display: flex;
-  gap: 0;
-}
+  gap: 10px;
+  margin-bottom: 10px;
 
-.white-row {
-  .form-group {
+  .field-group {
     flex: 1;
     position: relative;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-right: none;
+  }
 
-    &:last-child {
-      border-right: 1px solid rgba(255, 255, 255, 0.3);
-    }
+  .field-white {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    width: 100%;
+    padding: 14px 40px 14px 16px;
+    background: #ffffff;
+    border: none;
+    color: #666666;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+  }
 
-    .form-control {
-      font-family: 'Lato', sans-serif;
-      font-size: 13px;
-      width: 100%;
-      padding: 16px;
-      background: transparent;
-      border: none;
-      color: #ffffff;
-      appearance: none;
-      outline: none;
-
-      option {
-        color: #000000;
-        background: #ffffff;
-      }
-
-      &::placeholder {
-        color: rgba(255, 255, 255, 0.6);
-      }
-    }
-
-    .icon-plus {
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 18px;
-      pointer-events: none;
-    }
+  .field-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999999;
+    font-size: 18px;
+    pointer-events: none;
   }
 }
 
-// === Boutons NOIRS ===
-.black-row {
+// === Ligne 3 : boutons noirs avec icônes ===
+.actions-row {
   display: flex;
-  gap: 0;
-  margin-top: 0;
+  gap: 10px;
 
   .btn-black {
     font-family: 'Lato', sans-serif;
     font-size: 12px;
-    padding: 16px 45px;
+    padding: 14px 40px;
     background: #000000;
     color: #ffffff;
     border: none;
     cursor: pointer;
     font-weight: 900;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s;
 
     &:hover {
       background: #333333;
+    }
+
+    .btn-icon {
+      width: 14px;
+      height: 14px;
+      filter: brightness(0) invert(1);
     }
   }
 }
 
 @media (max-width: 768px) {
-  .white-row {
-    flex-direction: column;
-
-    .form-group {
-      border-right: 1px solid rgba(255, 255, 255, 0.3);
-    }
-  }
-
-  .search-tabs {
-    flex-wrap: wrap;
-  }
-
-  .black-row {
+  .tabs-row, .fields-row, .actions-row {
     flex-direction: column;
   }
 }

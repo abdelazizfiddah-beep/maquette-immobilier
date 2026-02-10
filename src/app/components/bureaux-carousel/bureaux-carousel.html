@@ -1,7 +1,10 @@
 <section class="nos-bureaux" id="nos-bureaux">
   <div class="container">
     <div class="section-header">
-      <h2>Nos bureaux</h2>
+      <div class="header-left">
+        <h2>Nos bureaux</h2>
+        <div class="orange-line"></div>
+      </div>
       <a (click)="showAllOffres()" class="link-all">
         TOUTES LES OFFRES
         <img src="assets/images/right-arrow-black.png" alt="flèche" class="arrow-icon">
@@ -9,20 +12,18 @@
     </div>
 
     <div class="cards-grid">
-      @if (displayOffres().length > 0) {
-        @for (offre of displayOffres(); track offre.libelle; let i = $index) {
-          <div class="bureau-card">
-            <div class="card-image">
-              <img [src]="offre.image" [alt]="offre.libelle" class="bureau-img">
-            </div>
-            <div class="card-content">
-              <h3>{{ offre.libelle }}</h3>
-              <p class="surface">{{ offre.surface }} M2</p>
-              <p class="location">{{ offre.ville }}</p>
-              <button class="btn-voir">VOIR</button>
-            </div>
+      @for (offre of displayOffres(); track offre.libelle; let i = $index) {
+        <div class="bureau-card">
+          <div class="card-image">
+            <img [src]="offre.image" [alt]="offre.libelle" class="bureau-img">
           </div>
-        }
+          <div class="card-content">
+            <h3>{{ offre.libelle }}</h3>
+            <p class="surface">{{ offre.surface }} M2</p>
+            <p class="location">{{ offre.ville }}</p>
+            <button class="btn-voir">VOIR</button>
+          </div>
+        </div>
       }
     </div>
   </div>

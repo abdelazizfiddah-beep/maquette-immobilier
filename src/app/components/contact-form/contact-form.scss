@@ -9,22 +9,28 @@
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
+  flex-direction: row;
   gap: 60px;
   align-items: flex-start;
 }
 
-// === GAUCHE : texte blanc ===
+.orange-line {
+  width: 60px;
+  height: 3px;
+  background: #f7931e;
+  margin-bottom: 25px;
+}
+
 .contact-left {
-  flex: 1;
+  flex: 1 1 50%;
   color: #ffffff;
 
   h2 {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     font-weight: 400;
-    color: #ffffff;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
+    color: #f7931e;
+    margin-bottom: 10px;
   }
 
   .intro {
@@ -52,92 +58,70 @@
     font-size: 14px;
     font-weight: 900;
     color: #ffffff;
-    letter-spacing: 1px;
   }
 }
 
-// === DROITE : formulaire blanc ===
 .contact-right {
-  flex: 1;
-  background: #ffffff;
-  padding: 35px;
+  flex: 1 1 50%;
+  background: transparent;
+  padding: 0;
 
   h2 {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     font-weight: 400;
-    color: #000000;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
+    color: #f7931e;
+    margin-bottom: 10px;
   }
 }
 
 .success-msg, .error-msg {
-  font-family: 'Lato', sans-serif;
   font-size: 13px;
   padding: 12px;
   margin-bottom: 15px;
+  border-radius: 4px;
 }
 
-.success-msg {
-  background: #d4edda;
-  color: #155724;
-}
+.success-msg { background: #d4edda; color: #155724; }
+.error-msg { background: #f8d7da; color: #721c24; }
 
-.error-msg {
-  background: #f8d7da;
-  color: #721c24;
-}
-
-.row {
+.form-row {
   display: flex;
   gap: 12px;
   margin-bottom: 12px;
 }
 
-.input-field {
+.form-field {
   flex: 1;
   font-family: 'Lato', sans-serif;
   font-size: 13px;
   padding: 14px 16px;
-  border: 1px solid #e0e0e0;
-  background: #f8f8f8;
+  border: 1px solid #333333;
+  background: #ffffff;
   color: #000000;
   outline: none;
-  transition: border-color 0.3s;
+  border-radius: 6px;
 
-  &:focus {
-    border-color: #f7931e;
-  }
-
-  &::placeholder {
-    color: rgba(0, 0, 0, 0.4);
-    font-weight: 300;
-  }
+  &:focus { border-color: #f7931e; }
+  &::placeholder { color: #666666; font-weight: 300; }
 }
 
-.textarea-field {
+.form-textarea {
   width: 100%;
   font-family: 'Lato', sans-serif;
   font-size: 13px;
   padding: 14px 16px;
-  border: 1px solid #e0e0e0;
-  background: #f8f8f8;
+  border: 1px solid #333333;
+  background: #ffffff;
   color: #000000;
   outline: none;
   resize: vertical;
   min-height: 140px;
   margin-bottom: 15px;
-  transition: border-color 0.3s;
+  border-radius: 6px;
 
-  &:focus {
-    border-color: #f7931e;
-  }
-
-  &::placeholder {
-    color: rgba(0, 0, 0, 0.4);
-    font-weight: 300;
-  }
+  &:focus { border-color: #f7931e; }
+  &::placeholder { color: #666666; font-weight: 300; }
 }
 
 .btn-send {
@@ -150,24 +134,13 @@
   cursor: pointer;
   font-weight: 900;
   letter-spacing: 1px;
-  transition: background 0.3s;
+  border-radius: 4px;
 
-  &:hover:not(:disabled) {
-    background: #e07800;
-  }
-
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
+  &:hover:not(:disabled) { background: #e07800; }
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
 }
 
-@media (max-width: 1024px) {
-  .contact-wrapper {
-    flex-direction: column;
-  }
-
-  .row {
-    flex-direction: column;
-  }
+@media (max-width: 768px) {
+  .contact-wrapper { flex-direction: column; }
+  .form-row { flex-direction: column; }
 }

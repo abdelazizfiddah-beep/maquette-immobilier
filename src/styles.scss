@@ -58,3 +58,50 @@ swiper-container {
 swiper-slide {
   height: auto;
 }
+
+/* === QUI SOMMES NOUS - Layout forcé === */
+app-qui-sommes-nous {
+  display: block;
+  width: 100%;
+}
+
+.qsn-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  min-height: 500px;
+}
+
+.qsn-left {
+  width: 58% !important;
+  min-width: 58% !important;
+}
+
+.qsn-right {
+  width: 42% !important;
+  min-width: 42% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* === CONTACT - Layout forcé === */
+app-contact-form {
+  display: block;
+  width: 100%;
+}
+
+.contact-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.contact-left {
+  width: 50% !important;
+  min-width: 50% !important;
+}
+
+.contact-right {
+  width: 50% !important;
+  min-width: 50% !important;
+}

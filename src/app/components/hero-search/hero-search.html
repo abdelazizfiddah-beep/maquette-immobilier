@@ -1,67 +1,49 @@
-<section class="hero">
-  <div class="hero-bg">
-    <img src="assets/images/header-bg.png" alt="background" class="bg-image">
-  </div>
-  <div class="hero-overlay">
-    <div class="container">
+<section class="hero" id="hero">
+  <div class="hero-container">
+    <img src="assets/images/header-bg.png" alt="" class="hero-bg-img">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
       <h1>Votre recherche de biens</h1>
 
-      <div class="search-tabs">
-        <button
-          [class.active]="searchMode() === 'acheter'"
-          (click)="searchMode.set('acheter')"
-          class="tab-btn orange">
-          ACHETER
-        </button>
-        <button
-          [class.active]="searchMode() === 'louer'"
-          (click)="searchMode.set('louer')"
-          class="tab-btn orange">
-          LOUER
-        </button>
-        <button
-          [class.active]="searchMode() === 'estimer'"
-          (click)="searchMode.set('estimer')"
-          class="tab-btn orange">
-          ESTIMER
-        </button>
+      <div class="tabs-row">
+        <button (click)="searchMode.set('acheter')" class="tab-btn" [class.active]="searchMode() === 'acheter'">ACHETER</button>
+        <button (click)="searchMode.set('louer')" class="tab-btn" [class.active]="searchMode() === 'louer'">LOUER</button>
+        <button (click)="searchMode.set('estimer')" class="tab-btn" [class.active]="searchMode() === 'estimer'">ESTIMER</button>
       </div>
 
-      <div class="search-fields">
-        <div class="field-row white-row">
-          <div class="form-group">
-            <select [(ngModel)]="selectedType" class="form-control">
-              <option value="">Type de bien</option>
-              @for (type of types(); track type.id) {
-                <option [value]="type.libelle">{{ type.libelle }}</option>
-              }
-            </select>
-            <span class="icon-plus">+</span>
-          </div>
-
-          <div class="form-group">
-            <select [(ngModel)]="selectedVille" class="form-control">
-              <option value="">Localisation</option>
-              @for (ville of villes(); track ville.ville) {
-                <option [value]="ville.ville">{{ ville.ville }}</option>
-              }
-            </select>
-          </div>
-
-          <div class="form-group">
-            <input
-              type="number"
-              [(ngModel)]="selectedBudget"
-              placeholder="Budget"
-              class="form-control">
-            <span class="icon-plus">+</span>
-          </div>
+      <div class="fields-row">
+        <div class="field-group">
+          <select [(ngModel)]="selectedType" class="field-white">
+            <option value="">Type de bien</option>
+            @for (type of types(); track type.id) {
+              <option [value]="type.libelle">{{ type.libelle }}</option>
+            }
+          </select>
+          <span class="field-icon">+</span>
         </div>
-
-        <div class="field-row black-row">
-          <button (click)="onSearch()" class="btn-black">CHERCHER</button>
-          <button (click)="onFilter()" class="btn-black">FILTRER</button>
+        <div class="field-group">
+          <select [(ngModel)]="selectedVille" class="field-white">
+            <option value="">Localisation</option>
+            @for (ville of villes(); track ville.ville) {
+              <option [value]="ville.ville">{{ ville.ville }}</option>
+            }
+          </select>
         </div>
+        <div class="field-group">
+          <input type="number" [(ngModel)]="selectedBudget" placeholder="Budget" class="field-white">
+          <span class="field-icon">+</span>
+        </div>
+      </div>
+
+      <div class="actions-row">
+        <button (click)="onSearch()" class="btn-black">
+          <img src="assets/images/search.png" alt="" class="btn-icon">
+          CHERCHER
+        </button>
+        <button (click)="onFilter()" class="btn-black">
+          <img src="assets/images/filters.png" alt="" class="btn-icon">
+          FILTRER
+        </button>
       </div>
     </div>
   </div>
